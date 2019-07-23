@@ -7,6 +7,25 @@
 </head>
 <body>
 <script>
+  const pressed = [];
+  const secretCode = 'utskey';
+  
+  window.addEventListener('keyup', (e) => {
+    console.log(e.key);
+    pressed.push(e.key);
+    
+    // Same as this if statement => 
+    // pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+    if (pressed.length > secretCode.length) {
+      pressed.splice(0, 1);
+    }
+    
+    if (pressed.join('') === secretCode) {
+      console.log('YAAAAAAAYYY YOU GOT IT!!!')
+      cornify_add() // this is adding some unicorns on the window
+    }
+    console.log(pressed);
+  })
 </script>
 </body>
 </html>
