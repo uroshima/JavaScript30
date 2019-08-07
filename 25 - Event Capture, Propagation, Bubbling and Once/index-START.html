@@ -42,7 +42,22 @@
 
 <button></button>
 <script>
-
+  const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button');
+  
+  function logText(e) {
+    // e.stopPropagation();
+    console.log(this.classList.value);
+    // console.log(this);
+  }
+  
+  // divs.forEach(div => div.addEventListener('click', logText));
+  
+  // The following takes optional third argument;
+  // the { capture: true } attribute means the function is not gonna run on the bubble up but opposite way
+  // the once attribute means once we run the function on that click it's no longer gonna listen to it
+  divs.forEach(div => div.addEventListener('click', logText, { capture: true, once: true }));
+  
 </script>
 </body>
 </html>
